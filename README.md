@@ -37,18 +37,14 @@ Follow these steps to create and configure your micro-frontend application:
 
 3. **Update the Federation Manifest File**
 
-   The micro-frontend application will be served on port `4201`. Make sure to update the port configuration in the federation manifest file (`webpack.config.js` or `module-federation.config.js`, depending on your setup) to reflect this:
+   The micro-frontend application will be served on port `4201`. Make sure to update the port configuration in the federation manifest file (`projects\host\src\assets\federation.manifest.json`, depending on your setup) to reflect this:
 
    ```javascript
-   // webpack.config.js or module-federation.config.js
+   // projects\host\src\assets\federation.manifest.json
    
-   module.exports = {
-     ...
-     devServer: {
-       port: 4201,
-     },
-     ...
-   };
+    {
+      "remote": "http://localhost:4201/remoteEntry.json"
+    }
    ```
 
 4. **Add the Route to Load the Micro-Frontend Application**
